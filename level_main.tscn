@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://djbxlt1rs8nrd"]
+
+[ext_resource type="PackedScene" uid="uid://vspekx7irhfe" path="res://cube.tscn" id="1_lxs7l"]
+[ext_resource type="Script" path="res://rotate_slowly.gd" id="2_kvl31"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_3n22y"]
+
+[node name="Level" type="Node3D"]
+
+[node name="Cube" parent="." instance=ExtResource("1_lxs7l")]
+script = ExtResource("2_kvl31")
+
+[node name="Environment" type="Node3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, -5)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment"]
+camera_attributes = SubResource("CameraAttributesPractical_3n22y")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.707107, 0.5, -0.5, 0, 0.707107, 0.707107, 0.707107, -0.5, 0.5, -9, 7, 2.83717)
